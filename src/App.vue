@@ -1,7 +1,12 @@
 <template>
   <div id="app">
-    <p>合計金額:{{ price }}(税抜)</p>
-    <p>合計金額:{{ includeTax }}(税込)</p>
+    <table>
+      <tr v-for="(data,index) in Vegetables" :key="index">
+        <th>{{index}}</th>
+        <td>{{data.name}}</td>
+        <td>{{data.price}}円</td>
+      </tr>
+    </table>
   </div>
 </template>
 
@@ -9,13 +14,12 @@
 export default {
   data() {
     return {
-      price: 300
+      Vegetables: [
+        { name: "じゃがいも", price: 300 },
+        { name: "イチゴ", price: 400 },
+        { name: "カボチャ", price: 500 }
+      ]
     };
-  },
-  computed: {
-    includeTax() {
-      return this.price * 1.1
-    }
   }
 };
 </script>
