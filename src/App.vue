@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <p @click="change">{{text}}</p>
+    <ul v-for="(data,index) in list" :key="index">
+    <li>{{index}}:{{data.name}}は{{data.price}}円です</li>
+    <li v-if="data.price > 300">高いです</li>
+    </ul>
   </div>
 </template>
 
@@ -8,13 +11,16 @@
 export default {
   data() {
     return {
-      text:"クリックする前のテキスト" 
+      list: [
+        { name: "りんご", price: 200 },
+        { name: "オレンジ", price: 100 },
+        { name: "バナナ", price: 500 }
+      ]
     };
   },
   methods: {
-    change() {
-      this.text = "クリックしたあとのテキスト";
-    }
+
+
   }
 };
 </script>
