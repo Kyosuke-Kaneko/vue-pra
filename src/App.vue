@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <input type="text" v-model="text" />
-    <p>{{text}}</p>
+    <p @click="change">{{text}}</p>
   </div>
 </template>
 
@@ -9,8 +8,13 @@
 export default {
   data() {
     return {
-      text: ""
+      text:"クリックする前のテキスト" 
     };
+  },
+  methods: {
+    change() {
+      this.text = "クリックしたあとのテキスト";
+    }
   }
 };
 </script>
