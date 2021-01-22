@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <input type="text" :value="message" />
+    <p>合計金額:{{ price }}(税抜)</p>
+    <p>合計金額:{{ includeTax }}(税込)</p>
   </div>
 </template>
 
@@ -8,8 +9,13 @@
 export default {
   data() {
     return {
-      message: "Hello"
+      price: 300
     };
+  },
+  computed: {
+    includeTax() {
+      return this.price * 1.1
+    }
   }
 };
 </script>
