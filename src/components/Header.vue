@@ -1,7 +1,7 @@
 <template>
-  <div id="side__menu">
-    <input type="text" v-model="childText" />
-    <button @click="sendParent">親に送る</button>
+  <div id="header">
+    <button @click="showText" type="submit">子に送る</button>
+    <p>{{show}}</p>
   </div>
 </template>
 
@@ -9,12 +9,13 @@
 export default {
   data() {
     return {
-      childText: ""
+      show: ""
     };
   },
+  props: ["parentText"],
   methods: {
-    sendParent() {
-      this.$emit("getChildText", this.childText);
+    showText() {
+      this.show = this.parentText;
     }
   }
 };

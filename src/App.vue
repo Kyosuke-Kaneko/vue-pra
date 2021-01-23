@@ -1,31 +1,20 @@
 <template>
-  <div class="home">
-    <Header @getChildText="showChildText"></Header>
-    <SideMenu></SideMenu>
-    <Footer></Footer>
-    <p>{{text}}</p>
+  <div id="app">
+    <input v-model="getText" type="text" />
+    <Header :parentText="getText"></Header>
   </div>
 </template>
 
 <script>
 import Header from "./components/Header";
-import SideMenu from './components/SideMenu.vue';
-import Footer from './components/Footer.vue';
 export default {
   data() {
     return {
-      text: "",
+      getText: ""
     };
   },
-  methods: {
-    showChildText(childText) {
-      this.text = childText;
-    }
-  },
   components: {
-    Header,
-    SideMenu,
-    Footer,
+    Header
   }
 };
 </script>
