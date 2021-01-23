@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <input v-model="getText" type="text" />
-    <Header :parentText="getText"></Header>
+    <Header @getChildText="showChildText"></Header>
+    <p v-for="(item,index) in textList" :key="index">{{item}}</p>
   </div>
 </template>
 
@@ -10,8 +10,13 @@ import Header from "./components/Header";
 export default {
   data() {
     return {
-      getText: ""
+      textList: []
     };
+  },
+  methods: {
+    showChildText(childText) {
+      this.textList.push(childText);
+    }
   },
   components: {
     Header
