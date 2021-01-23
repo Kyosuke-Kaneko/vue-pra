@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
-    <Header :parentText="sendText"></Header>
-    <p>App.vue</p>
+  <div class="home">
+    <Header @getChildText="showChildText"></Header>
+    <p>{{text}}</p>
   </div>
 </template>
 
@@ -10,8 +10,13 @@ import Header from "./components/Header";
 export default {
   data() {
     return {
-      sendText: "親コンポーネントのデータ"
+      text: ""
     };
+  },
+  methods: {
+    showChildText(childText) {
+      this.text = childText;
+    }
   },
   components: {
     Header
