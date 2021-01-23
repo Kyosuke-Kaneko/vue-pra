@@ -9,7 +9,7 @@
 export default {
   data() {
     return {
-      show: ""
+      show: "aa"
     };
   },
   props: ["parentText"],
