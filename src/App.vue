@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header @getChildText="showChildText"></Header>
+    <Header @getChildText="showChildText">ああ</Header>
     <p v-for="(item,index) in textList" :key="index">{{item}}</p>
   </div>
 </template>
